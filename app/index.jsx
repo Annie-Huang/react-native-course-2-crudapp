@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, TextInput, Pressable } from 'react-native';
+import { Text, View, TextInput, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { data } from '@/data/todos';
@@ -29,9 +29,15 @@ export default function Index() {
   };
 
   return (
-    <SafeAreaView>
-      <View>
-        <TextInput />
+    <SafeAreaView style={styles.container}>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder='Add a new todo'
+          placeholderTextColor='gray'
+          value={text}
+          onChangeText={setText}
+        />
         <Pressable>
           <Text></Text>
         </Pressable>
@@ -39,3 +45,5 @@ export default function Index() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({});
