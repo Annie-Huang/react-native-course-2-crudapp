@@ -38,8 +38,8 @@ export default function Index() {
           value={text}
           onChangeText={setText}
         />
-        <Pressable>
-          <Text></Text>
+        <Pressable onPress={addTodo} style={styles.addButton}>
+          <Text style={styles.addButtonText}>Add</Text>
         </Pressable>
       </View>
     </SafeAreaView>
