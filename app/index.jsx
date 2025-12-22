@@ -8,6 +8,14 @@ export default function Index() {
   const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id));
   const [text, setText] = useState('');
 
+  const addTodo = () => {
+    if (text.trim()) {
+      const newId = todos.length > 0 ? todos[0].id + 1 : 1;
+      setTodos([{ id: newId, title: text, completed: false }, ...todos]);
+      setText('');
+    }
+  };
+
   return (
     <View
       style={{
