@@ -24,6 +24,10 @@ export default function Index() {
     );
   };
 
+  const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <View
       style={{
