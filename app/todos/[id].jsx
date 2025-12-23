@@ -6,6 +6,7 @@ import { ThemeContext } from '@/context/ThemeContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+import { Octicons } from '@expo/vector-icons';
 
 export default function EditScreen() {
   const { id } = useLocalSearchParams();
@@ -73,7 +74,20 @@ export default function EditScreen() {
           // onChangeText={(text) => setTodo({ ...todo, title: text })}
           onChangeText={(text) => setTodo((prev) => ({ ...prev, title: text }))}
         />
-        <Pressable></Pressable>
+        <Pressable
+          onPress={() =>
+            setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
+          }
+          style={{ marginLeft: 10 }}
+        >
+          <Octicons
+            name={colorScheme === 'dark' ? 'moon' : 'sun'}
+            size={36}
+            color={theme.text}
+            selectable={undefined}
+            style={{ width: 36 }}
+          />
+        </Pressable>
       </View>
       <View>
         <Pressable></Pressable>
