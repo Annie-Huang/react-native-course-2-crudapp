@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {
   Text,
   View,
@@ -12,6 +12,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
 import Animated, { LinearTransition } from 'react-native-reanimated';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Octicons from '@expo/vector-icons/Octicons';
 
 import { data } from '@/data/todos';
@@ -23,6 +24,19 @@ export default function Index() {
   const [text, setText] = useState('');
 
   const [loaded, error] = useFonts({ Inter_500Medium });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const jsonValue = await AsyncStorage.getItem('TodoApp');
+        const storageTodos = jsonValue !== null ? JSON.parse(jsonValue) : null;
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   if (!loaded && !error) return null;
 
