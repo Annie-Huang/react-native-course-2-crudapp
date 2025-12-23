@@ -13,6 +13,8 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
 import Animated, { LinearTransition } from 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StatusBar } from 'expo-status-bar';
+
 import Octicons from '@expo/vector-icons/Octicons';
 
 import { data } from '@/data/todos';
@@ -157,6 +159,9 @@ export default function Index() {
         itemLayoutAnimation={LinearTransition}
         keyboardDismissMode='on-drag' // When the keyboard is open in mobile, drag down can remove the keyboard
       />
+
+      {/* I can already see the battery status, clock etc on the top status bar even without the below */}
+      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
     </SafeAreaView>
   );
 }
