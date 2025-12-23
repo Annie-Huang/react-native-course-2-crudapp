@@ -30,13 +30,21 @@ export default function Index() {
       try {
         const jsonValue = await AsyncStorage.getItem('TodoApp');
         const storageTodos = jsonValue !== null ? JSON.parse(jsonValue) : null;
+
+        // Get info from local storage from the key of 'TodoApp'
+        if (storageTodos && storageTodos.length) {
+          setTodos(storageTodos.sort((a, b) => b.id - a.id));
+        } else {
+          // Or get the initial list from data data/todos.js
+          setTodos(data.sort((a, b) => b.id - a.id));
+        }
       } catch (e) {
         console.error(e);
       }
     };
 
     fetchData();
-  }, []);
+  }, [data]);
 
   if (!loaded && !error) return null;
 
