@@ -36,6 +36,8 @@ export default function EditScreen() {
 
   if (!loaded && !error) return null;
 
+  const styles = createStyles(theme, colorScheme);
+
   const handleSave = async () => {
     try {
       // Can only change the title
@@ -105,4 +107,8 @@ export default function EditScreen() {
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
     </SafeAreaView>
   );
+}
+
+function createStyles(theme, colorScheme) {
+  return StyleSheet.create({});
 }
