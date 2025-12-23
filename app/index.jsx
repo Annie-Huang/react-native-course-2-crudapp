@@ -37,8 +37,10 @@ export default function Index() {
   };
 
   const renderItem = ({ item }) => (
-    <View>
-      <Text>{item.title}</Text>
+    <View style={styles.todoItem}>
+      <Text style={[styles.todoText, item.completed && styles.completedText]}>
+        {item.title}
+      </Text>
       <Pressable>
         <MaterialCommunityIcons
           name='delete-circle'
