@@ -1,8 +1,9 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Text, View } from 'react-native';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
 import { ThemeContext } from '@/context/ThemeContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function EditScreen() {
   const { id } = useLocalSearchParams();
@@ -11,6 +12,24 @@ export default function EditScreen() {
   const router = useRouter();
 
   const [loaded, error] = useFonts({ Inter_500Medium });
+
+  useEffect(() => {
+    const fetchData = async (id) => {
+      try {
+        const jsonValue = await AsyncStorage.getItem('TodoApp');
+        const storageTodos = jsonValue !== null ? JSON.parse(jsonValue) : null;
+
+        if (storageTodos && storageTodos.length) {
+          const myTodo = storageTodos.find((todo) => todo.id.toString() === id);
+          setTodo(myTodo);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchData(id);
+  }, [id]);
 
   if (!loaded && !error) return null;
 
