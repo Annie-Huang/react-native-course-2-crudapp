@@ -10,11 +10,17 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
+import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
+
 import { data } from '@/data/todos';
 
 export default function Index() {
   const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id));
   const [text, setText] = useState('');
+
+  const [loaded, error] = useFonts({ Inter_500Medium });
+
+  if (!loaded && !error) return null;
 
   const addTodo = () => {
     if (text.trim()) {
