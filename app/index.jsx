@@ -119,7 +119,8 @@ function createStyles(theme, colorScheme) {
   return StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'black',
+      // backgroundColor: 'black',
+      backgroundColor: theme.background,
     },
     inputContainer: {
       flexDirection: 'row',
@@ -141,16 +142,19 @@ function createStyles(theme, colorScheme) {
       fontSize: 18,
       fontFamily: 'Inter_500Medium',
       minWidth: 0, // may need for some mobile devices
-      color: 'white',
+      // color: 'white',
+      color: theme.text,
     },
     addButton: {
-      backgroundColor: 'white',
+      // backgroundColor: 'white',
+      backgroundColor: theme.button,
       borderRadius: 5,
       padding: 10,
     },
     addButtonText: {
       fontSize: 18,
-      color: 'black',
+      // color: 'black',
+      color: colorScheme === 'dark' ? 'black' : 'white',
     },
     todoItem: {
       flexDirection: 'row',
@@ -169,7 +173,8 @@ function createStyles(theme, colorScheme) {
       flex: 1,
       fontSize: 18,
       fontFamily: 'Inter_500Medium',
-      color: 'white',
+      // color: 'white',
+      color: theme.text,
     },
     completedText: {
       textDecorationLine: 'line-through',
