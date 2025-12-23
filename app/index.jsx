@@ -19,7 +19,8 @@ import { data } from '@/data/todos';
 import { ThemeContext } from '@/context/ThemeContext';
 
 export default function Index() {
-  const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id));
+  // const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id));
+  const [todos, setTodos] = useState([]); // keep as empty array as we try to call local storage.
   const { colorScheme, setColorScheme, theme } = useContext(ThemeContext);
   const [text, setText] = useState('');
 
