@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   Text,
   View,
@@ -11,11 +11,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
+import Octicons from '@expo/vector-icons/Octicons';
 
 import { data } from '@/data/todos';
+import { ThemeContext } from '@/context/ThemeContext';
 
 export default function Index() {
   const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id));
+  const { colorScheme, setColorScheme, theme } = useContext(ThemeContext);
   const [text, setText] = useState('');
 
   const [loaded, error] = useFonts({ Inter_500Medium });
