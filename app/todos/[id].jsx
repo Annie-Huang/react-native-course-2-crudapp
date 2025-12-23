@@ -12,6 +12,8 @@ export default function EditScreen() {
 
   const [loaded, error] = useFonts({ Inter_500Medium });
 
+  if (!loaded && !error) return null;
+
   return (
     <View>
       <Text>{id}</Text>
