@@ -69,6 +69,7 @@ export default function EditScreen() {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
+          maxLength={30} // to ensure we can always view it on mobile in protrait mode.
           placeholder='Edit todo'
           placeholderTextColor='gray'
           value={todo?.title || ''}
