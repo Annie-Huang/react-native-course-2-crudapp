@@ -19,4 +19,5 @@ PS C:\react\react-native-course-2-crudapp> npm i @expo-google-fonts/inter
 
 
 PS C:\react\react-native-course-2-crudapp> npm run start
+PS C:\react\react-native-course-2-crudapp> npm run start -c     <-- clear the cache to load the font
 

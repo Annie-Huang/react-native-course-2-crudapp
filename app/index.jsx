@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginRight: 10,
     fontSize: 18,
+    fontFamily: 'Inter_500Medium',
     minWidth: 0, // may need for some mobile devices
     color: 'white',
   },
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
   todoText: {
     flex: 1,
     fontSize: 18,
+    fontFamily: 'Inter_500Medium',
     color: 'white',
   },
   completedText: {
