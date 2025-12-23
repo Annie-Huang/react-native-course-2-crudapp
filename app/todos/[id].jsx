@@ -40,6 +40,16 @@ export default function EditScreen() {
 
       const jsonValue = await AsyncStorage.getItem('TodoApp');
       const storageTodos = jsonValue !== null ? JSON.parse(jsonValue) : null;
+
+      if (storageTodos && storageTodos.length) {
+        const otherTodos = storageTodos.filter(
+          (todo) => todo.id !== savedTodo.id,
+        );
+
+        // Put others in first, and the new edited one will put on to the top of the list.
+        const allTodos = [...otherTodos, savedTodo];
+        await AsyncStorage.setItem('TodoApp', JSON.stringify(allTodos));
+      }
     } catch (e) {
       console.error(e);
     }
