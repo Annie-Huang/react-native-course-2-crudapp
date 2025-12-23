@@ -49,6 +49,8 @@ export default function EditScreen() {
         // Put others in first, and the new edited one will put on to the top of the list.
         const allTodos = [...otherTodos, savedTodo];
         await AsyncStorage.setItem('TodoApp', JSON.stringify(allTodos));
+      } else {
+        await AsyncStorage.setItem('TodoApp', JSON.stringify([savedTodo]));
       }
     } catch (e) {
       console.error(e);
