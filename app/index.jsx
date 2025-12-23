@@ -8,6 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { data } from '@/data/todos';
 
@@ -34,6 +35,20 @@ export default function Index() {
   const removeTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
+
+  const renderItem = ({ item }) => (
+    <View>
+      <Text>{item.title}</Text>
+      <Pressable>
+        <MaterialCommunityIcons
+          name='delete-circle'
+          size={36}
+          color='red'
+          selectable={undefined}
+        />
+      </Pressable>
+    </View>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
