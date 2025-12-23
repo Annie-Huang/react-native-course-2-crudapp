@@ -64,7 +64,15 @@ export default function EditScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} />
+        <TextInput
+          style={styles.input}
+          placeholder='Edit todo'
+          placeholderTextColor='gray'
+          value={todo?.title || ''}
+          // the 2nd one is better
+          // onChangeText={(text) => setTodo({ ...todo, title: text })}
+          onChangeText={(text) => setTodo((prev) => ({ ...prev, title: text }))}
+        />
         <Pressable></Pressable>
       </View>
       <View>
