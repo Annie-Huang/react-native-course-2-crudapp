@@ -1,10 +1,11 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Text, View } from 'react-native';
+import { Pressable, Text, TextInput, View } from 'react-native';
 import { useContext, useEffect, useState } from 'react';
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
 import { ThemeContext } from '@/context/ThemeContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 
 export default function EditScreen() {
   const { id } = useLocalSearchParams();
@@ -63,8 +64,14 @@ export default function EditScreen() {
   return (
     <SafeAreaView>
       <View>
-        <Text>{id}</Text>
+        <TextInput />
+        <Pressable></Pressable>
       </View>
+      <View>
+        <Pressable></Pressable>
+        <Pressable></Pressable>
+      </View>
+      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
     </SafeAreaView>
   );
 }
