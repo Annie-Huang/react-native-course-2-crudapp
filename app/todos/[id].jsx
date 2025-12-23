@@ -62,9 +62,9 @@ export default function EditScreen() {
   };
 
   return (
-    <SafeAreaView>
-      <View>
-        <TextInput />
+    <SafeAreaView style={styles.container}>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input} />
         <Pressable></Pressable>
       </View>
       <View>
