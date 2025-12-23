@@ -33,6 +33,18 @@ export default function EditScreen() {
 
   if (!loaded && !error) return null;
 
+  const handleSave = async () => {
+    try {
+      // Can only change the title
+      const savedTodo = { ...todo, title: todo.title };
+
+      const jsonValue = await AsyncStorage.getItem('TodoApp');
+      const storageTodos = jsonValue !== null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <View>
       <Text>{id}</Text>
