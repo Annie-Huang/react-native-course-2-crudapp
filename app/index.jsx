@@ -25,6 +25,8 @@ export default function Index() {
 
   if (!loaded && !error) return null;
 
+  const styles = createStyles(theme, colorScheme);
+
   const addTodo = () => {
     if (text.trim()) {
       const newId = todos.length > 0 ? todos[0].id + 1 : 1;
@@ -112,63 +114,66 @@ export default function Index() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-    padding: 10,
-    width: '100%',
-    maxWidth: 1024,
-    marginHorizontal: 'auto',
-    pointerEvents: 'auto',
-  },
-  input: {
-    flex: 1,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
-    marginRight: 10,
-    fontSize: 18,
-    fontFamily: 'Inter_500Medium',
-    minWidth: 0, // may need for some mobile devices
-    color: 'white',
-  },
-  addButton: {
-    backgroundColor: 'white',
-    borderRadius: 5,
-    padding: 10,
-  },
-  addButtonText: {
-    fontSize: 18,
-    color: 'black',
-  },
-  todoItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 4,
-    padding: 10,
-    borderBottomColor: 'gray',
-    borderBottomWidth: 1,
-    width: '100%',
-    maxWidth: 1024,
-    marginHorizontal: 'auto',
-    pointerEvents: 'auto',
-  },
-  todoText: {
-    flex: 1,
-    fontSize: 18,
-    fontFamily: 'Inter_500Medium',
-    color: 'white',
-  },
-  completedText: {
-    textDecorationLine: 'line-through',
-    color: 'gray',
-  },
-});
+// const styles = StyleSheet.create({
+function createStyles(theme, colorScheme) {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: 'black',
+    },
+    inputContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 10,
+      padding: 10,
+      width: '100%',
+      maxWidth: 1024,
+      marginHorizontal: 'auto',
+      pointerEvents: 'auto',
+    },
+    input: {
+      flex: 1,
+      borderColor: 'gray',
+      borderWidth: 1,
+      borderRadius: 5,
+      padding: 10,
+      marginRight: 10,
+      fontSize: 18,
+      fontFamily: 'Inter_500Medium',
+      minWidth: 0, // may need for some mobile devices
+      color: 'white',
+    },
+    addButton: {
+      backgroundColor: 'white',
+      borderRadius: 5,
+      padding: 10,
+    },
+    addButtonText: {
+      fontSize: 18,
+      color: 'black',
+    },
+    todoItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 4,
+      padding: 10,
+      borderBottomColor: 'gray',
+      borderBottomWidth: 1,
+      width: '100%',
+      maxWidth: 1024,
+      marginHorizontal: 'auto',
+      pointerEvents: 'auto',
+    },
+    todoText: {
+      flex: 1,
+      fontSize: 18,
+      fontFamily: 'Inter_500Medium',
+      color: 'white',
+    },
+    completedText: {
+      textDecorationLine: 'line-through',
+      color: 'gray',
+    },
+  });
+}
