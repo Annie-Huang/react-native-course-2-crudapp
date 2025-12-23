@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { Text, View, TextInput, Pressable, StyleSheet } from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  Pressable,
+  StyleSheet,
+  FlatList,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { data } from '@/data/todos';
@@ -42,6 +49,12 @@ export default function Index() {
           <Text style={styles.addButtonText}>Add</Text>
         </Pressable>
       </View>
+      <FlatList
+        data={todos}
+        renderItem={() => <></>}
+        keyExtractor={(todo) => todo.id}
+        contentContainerStyle={{ flexGrow: 1 }}
+      />
     </SafeAreaView>
   );
 }
