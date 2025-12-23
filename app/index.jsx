@@ -77,6 +77,30 @@ export default function Index() {
         <Pressable onPress={addTodo} style={styles.addButton}>
           <Text style={styles.addButtonText}>Add</Text>
         </Pressable>
+        <Pressable
+          onPress={() =>
+            setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
+          }
+          style={{ marginLeft: 10 }}
+        >
+          {colorScheme === 'dark' ? (
+            <Octicons
+              name='moon'
+              size={36}
+              color={theme.text}
+              selectable={undefined}
+              style={{ width: 36 }}
+            />
+          ) : (
+            <Octicons
+              name='sun'
+              size={36}
+              color={theme.text}
+              selectable={undefined}
+              style={{ width: 36 }}
+            />
+          )}
+        </Pressable>
       </View>
       <FlatList
         data={todos}
