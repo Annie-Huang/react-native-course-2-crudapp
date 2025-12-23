@@ -90,12 +90,11 @@ export default function Index() {
 
   const renderItem = ({ item }) => (
     <View style={styles.todoItem}>
-      <Text
-        style={[styles.todoText, item.completed && styles.completedText]}
-        onPress={() => toggleTodo(item.id)}
-      >
-        {item.title}
-      </Text>
+      <Pressable onLongPress={() => toggleTodo(item.id)}>
+        <Text style={[styles.todoText, item.completed && styles.completedText]}>
+          {item.title}
+        </Text>
+      </Pressable>
       <Pressable onPress={() => removeTodo(item.id)}>
         <MaterialCommunityIcons
           name='delete-circle'

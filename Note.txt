@@ -25,3 +25,6 @@ PS C:\react\react-native-course-2-crudapp> npm install @react-native-async-stora
 PS C:\react\react-native-course-2-crudapp> npm run start
 PS C:\react\react-native-course-2-crudapp> npm run start -c     <-- clear the cache to load the font
 
+
+onLongPress
+onPress
