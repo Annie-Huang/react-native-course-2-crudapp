@@ -14,6 +14,7 @@ If you don't want any template:
 npx create-expo-app@latest react-native-course-2-crudapp --template blank
 
 PS C:\react\react-native-course-2-crudapp> npm run reset-project
+PS C:\react\react-native-course-2-crudapp> npm i @expo-google-fonts/inter
 
 
 
