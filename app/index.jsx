@@ -19,12 +19,14 @@ import Octicons from '@expo/vector-icons/Octicons';
 
 import { data } from '@/data/todos';
 import { ThemeContext } from '@/context/ThemeContext';
+import { useRouter } from 'expo-router';
 
 export default function Index() {
   // const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id));
   const [todos, setTodos] = useState([]); // keep as empty array as we try to call local storage.
-  const { colorScheme, setColorScheme, theme } = useContext(ThemeContext);
   const [text, setText] = useState('');
+  const { colorScheme, setColorScheme, theme } = useContext(ThemeContext);
+  const router = useRouter();
 
   const [loaded, error] = useFonts({ Inter_500Medium });
 
@@ -88,9 +90,16 @@ export default function Index() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const handlePress = (id) => {
+    router.push(`/todos/${id}`);
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.todoItem}>
-      <Pressable onLongPress={() => toggleTodo(item.id)}>
+      <Pressable
+        onPress={() => handlePress(item.id)}
+        onLongPress={() => toggleTodo(item.id)}
+      >
         <Text style={[styles.todoText, item.completed && styles.completedText]}>
           {item.title}
         </Text>

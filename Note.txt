@@ -26,5 +26,7 @@ PS C:\react\react-native-course-2-crudapp> npm run start
 PS C:\react\react-native-course-2-crudapp> npm run start -c     <-- clear the cache to load the font
 
 
-onLongPress
+onLongPress (press longer, also working with mouse, not just mobile)
+    -> toggle the 'completed' status for the item
 onPress
+     -> got the the item detail
