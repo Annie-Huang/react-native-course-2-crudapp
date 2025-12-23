@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
 import { ThemeContext } from '@/context/ThemeContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function EditScreen() {
   const { id } = useLocalSearchParams();
@@ -60,8 +61,10 @@ export default function EditScreen() {
   };
 
   return (
-    <View>
-      <Text>{id}</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>{id}</Text>
+      </View>
+    </SafeAreaView>
   );
 }
