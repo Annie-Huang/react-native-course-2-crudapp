@@ -89,8 +89,10 @@ export default function EditScreen() {
           />
         </Pressable>
       </View>
-      <View>
-        <Pressable></Pressable>
+      <View style={styles.inputContainer}>
+        <Pressable onPress={handleSave} style={styles.saveButton}>
+          <Text style={styles.saveButtonText}>Save</Text>
+        </Pressable>
         <Pressable></Pressable>
       </View>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
