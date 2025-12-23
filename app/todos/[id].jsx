@@ -51,7 +51,7 @@ export default function EditScreen() {
           (todo) => todo.id !== savedTodo.id,
         );
 
-        // Put others in first, and the new edited one will put on to the top of the list.
+        // Doesn't matter what order we put in, when it display in the home screen, it will always sorted by id.
         const allTodos = [...otherTodos, savedTodo];
         await AsyncStorage.setItem('TodoApp', JSON.stringify(allTodos));
       } else {
