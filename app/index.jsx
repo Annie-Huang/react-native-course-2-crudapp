@@ -15,7 +15,7 @@ import Animated, { LinearTransition } from 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar } from 'expo-status-bar';
 
-import Octicons from '@expo/vector-icons/Octicons';
+import { Octicons } from '@expo/vector-icons';
 
 import { data } from '@/data/todos';
 import { ThemeContext } from '@/context/ThemeContext';
