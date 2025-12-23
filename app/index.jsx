@@ -38,10 +38,13 @@ export default function Index() {
 
   const renderItem = ({ item }) => (
     <View style={styles.todoItem}>
-      <Text style={[styles.todoText, item.completed && styles.completedText]}>
+      <Text
+        style={[styles.todoText, item.completed && styles.completedText]}
+        onPress={() => toggleTodo(item.id)}
+      >
         {item.title}
       </Text>
-      <Pressable>
+      <Pressable onPress={() => removeTodo(item.id)}>
         <MaterialCommunityIcons
           name='delete-circle'
           size={36}
@@ -68,7 +71,7 @@ export default function Index() {
       </View>
       <FlatList
         data={todos}
-        renderItem={() => <></>}
+        renderItem={renderItem}
         keyExtractor={(todo) => todo.id}
         contentContainerStyle={{ flexGrow: 1 }}
       />
