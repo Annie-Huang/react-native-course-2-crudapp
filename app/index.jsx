@@ -26,6 +26,7 @@ export default function Index() {
 
   const [loaded, error] = useFonts({ Inter_500Medium });
 
+  // Load data from local storage.
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,6 +47,20 @@ export default function Index() {
 
     fetchData();
   }, [data]);
+
+  // Store data back into local storage whenever todos state value has changed.
+  useEffect(() => {
+    const storeData = async () => {
+      try {
+        const jsonValue = JSON.stringify(todos);
+        await AsyncStorage.setItem('TodoApp', jsonValue);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    storeData();
+  }, [todos]);
 
   if (!loaded && !error) return null;
 
