@@ -52,6 +52,8 @@ export default function EditScreen() {
       } else {
         await AsyncStorage.setItem('TodoApp', JSON.stringify([savedTodo]));
       }
+
+      router.push('/');
     } catch (e) {
       console.error(e);
     }
