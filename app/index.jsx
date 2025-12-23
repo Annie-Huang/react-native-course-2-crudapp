@@ -114,4 +114,26 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'black',
   },
+  todoItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 4,
+    padding: 10,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1,
+    width: '100%',
+    maxWidth: 1024,
+    marginHorizontal: 'auto',
+    pointerEvents: 'auto',
+  },
+  todoText: {
+    flex: 1,
+    fontSize: 18,
+    color: 'white',
+  },
+  completedText: {
+    textDecorationLine: 'line-through',
+    color: 'gray',
+  },
 });
